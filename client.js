@@ -373,6 +373,9 @@ DHT.prototype._onquery = function (query, peer) {
 
     case 'put':
       return this._onput(query, peer)
+
+    case 'vote':
+      return this._onvote(query, peer)
   }
 }
 
@@ -478,6 +481,12 @@ DHT.prototype._onput = function (query, peer) {
   }
 
   this._rpc.response(peer, query, {id: this._rpc.id})
+}
+
+DHT.prototype._onvote = function (query, peer) {
+  //debugger;
+  console.log('Here\'s a vote :')
+  console.log(query)
 }
 
 DHT.prototype._bootstrap = function (populate) {
